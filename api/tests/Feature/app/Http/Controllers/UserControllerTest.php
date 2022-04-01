@@ -19,12 +19,13 @@ class UserControllerTest extends TestCase
             ]);
 
         $response->assertStatus(201);
-        $response->assertExactJson([
-            'message' => 'user created successfully',
+        $response->assertJsonStructure([
+            'message',
             'data' => [
-                'name' => 'test',
-                'email' => 'test@example.com',
-            ]
+                'name',
+                'email',
+            ],
+            'token',
         ]);
     }
 
