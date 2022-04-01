@@ -51,4 +51,21 @@ class AuthControllerTest extends TestCase
            'message' => 'wrong credentials'
         ]);
     }
+
+    public function test_should_be_able_make_logout()
+    {
+        $user = User::factory()->create();
+
+        $this->withHeaders(['Accept' => 'application/json'])
+            ->post(Route('login'), [
+                'email' => $user->email,
+                'password' => 'password'
+            ]);
+
+
+        $response = $this->withHeaders(['Accept' => 'application/json'])
+            ->post(Route('logout'));
+
+        $response->assertStatus(204);
+    }
 }
