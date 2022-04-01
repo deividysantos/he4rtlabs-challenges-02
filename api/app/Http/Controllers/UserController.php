@@ -20,7 +20,7 @@ class UserController extends Controller
                 'name' => $user->name,
                 'email' => $user->email
             ],
-            'token' => $token
+            'token' => $token->plainTextToken
         ],  201);
     }
 }
