@@ -1,5 +1,5 @@
 import * as header from '../components/header/header.js'
-import * as form from './form/form.js'
+import * as form from './formRegister/formRegister.js'
 
 export function init()
 {

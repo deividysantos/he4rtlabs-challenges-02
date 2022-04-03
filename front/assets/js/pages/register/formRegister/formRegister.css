@@ -41,6 +41,21 @@ form .inputs h2{
     color: white;
 }
 
+form .inputs p{
+    color: white;
+    margin-bottom: 10px;
+}
+
+form .inputs p .anchorToLogin{
+    border-bottom: 1px solid transparent;
+    color: black;
+    cursor: pointer;
+}
+
+form .inputs p .anchorToLogin:hover{
+    border-color: white;
+}
+
 form .inputs .submit{
     width: 150px;
     margin: 10px auto;

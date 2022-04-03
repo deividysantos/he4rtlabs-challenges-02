@@ -1,7 +1,7 @@
 @import url('/front/assets/js/pages/components/header/header.css');
 @import url('/front/assets/js/pages/dashboard/actions/actions.css');
 @import url('/front/assets/js/pages/components/button/button.css');
-@import url('/front/assets/js/pages/register/form/form.css');
+@import url('/front/assets/js/pages/register/formRegister/formRegister.css');
 
 *{
     margin: 0;
