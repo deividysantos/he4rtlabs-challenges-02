@@ -1,0 +1,54 @@
+form{
+    margin: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px 15px 15px 50px;
+    background: var(--color1);
+}
+
+form img{
+    width: 50%;
+    border-radius: 100px 1000px 1000px 100px;
+    background: black;
+}
+
+form .inputs{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background: var(--color1);
+}
+
+form .inputs input{
+    margin: 10px auto;
+    height: 15px;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 3px;
+    outline: none;
+    width: 350px;
+    transition: 0.1s ease;
+    background: white;
+}
+
+form .inputs input:focus{
+    border-bottom-color: var(--color1);
+}
+
+form .inputs h2{
+    color: white;
+}
+
+form .inputs .submit{
+    width: 150px;
+    margin: 10px auto;
+    background: var(--color1);
+}
+
+form .inputs .submit .btnSubmit{
+    background: white;
+    border-color: transparent;
+    color: var(--color1);
+}

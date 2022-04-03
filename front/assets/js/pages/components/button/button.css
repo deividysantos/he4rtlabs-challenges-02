@@ -1,0 +1,19 @@
+.btn{
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    border: 2px solid;
+    font-size: 17px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:focus{
+    border-color: transparent;
+    outline: none;
+}
+
+.btn:hover{
+    padding: 8px 20px;
+}
