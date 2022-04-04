@@ -15,6 +15,9 @@ export function renderRegister(){
 
     const anchorToLogin = document.querySelector('.anchorToLogin');
     anchorToLogin.addEventListener('click', renderLogin);
+
+    const btnSubmit = document.querySelector('.btnSubmit');
+    btnSubmit.addEventListener('click', register.send)
 }
 
 export function renderLogin(){
