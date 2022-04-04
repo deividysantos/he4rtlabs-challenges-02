@@ -35,7 +35,7 @@ export function send(event){
 
     const credentials = getCredential();
 
-    if(!verify.inputsIsOkNow(credentials))
+    if(!verify.inputsIsOkNow(credentials, getCallableVerify()))
     {
         alert('Preencha os campos corretamente!');
         return;

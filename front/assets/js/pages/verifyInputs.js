@@ -33,13 +33,14 @@ export function inputsIsOkInRealTime(credentials, callback) {
 
 }
 
-export function inputsIsOkNow(credentials){
+export function inputsIsOkNow(credentials, callback){
 
-    let inputs = [
-        focusOutVerify(credentials[0], nameOk),
-        focusOutVerify (credentials[1], emailOk),
-        focusOutVerify (credentials[2], passwordOk),
-    ];
+    let inputs = [];
+
+    credentials.forEach(function (credential, index) {
+
+            inputs.push(focusOutVerify(credential, callback[index]));
+    });
 
     return !inputs.includes(false);
 }

@@ -1,13 +1,17 @@
 import * as dashboard from './pages/dashboard/dashboard.js'
 import * as register from './pages/register/register.js'
 import * as login from './pages/login/login.js'
+import * as header from './pages/components/header/header.js';
 
-export function renderDashboard(){
-    dashboard.init();
+export function renderDashboard(token){
+    dashboard.init(token);
 
     const btnLogout = document.querySelector('.btnLogout');
-
     btnLogout.addEventListener('click', renderLogin );
+
+    const imgProfile = document.querySelector('.imageProfile');
+    imgProfile.addEventListener('mouseover', header.logoutVisible);
+    imgProfile.addEventListener('mouseout', header.logoutInvisible);
 }
 
 export function renderRegister(){
@@ -25,4 +29,7 @@ export function renderLogin(){
 
     const anchorToLogin = document.querySelector('.anchorToLogin');
     anchorToLogin.addEventListener('click', renderRegister);
+
+    const btnSubmit = document.querySelector('.btnSubmit');
+    btnSubmit.addEventListener('click', login.send)
 }
