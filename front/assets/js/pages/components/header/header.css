@@ -28,17 +28,62 @@ header{
     height: auto;
     border-radius: 50px;
     margin-right: 5px;
+    border: 2px solid transparent;
 }
 
-.imageProfile .btnProfile .btnLogout{
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 17px;
+.imageProfile .btnProfile .avatar:hover{
+    border-color: white;
+}
+
+.modalLogout{
+    display: flex;
+    min-width: 250px;
+    flex-direction: column;
+    border: 0.1rem solid rgba(198,198,198,0.35);
+    background: white;
+    padding: 10px;
+}
+
+.modalLogout .header{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.modalLogout .header .avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    margin: 0 15px;
+}
+
+.modalLogout .header .infos{
+    display: flex;
+    flex-direction: column;
+}
+
+.modalLogout .header .infos .email{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.modalLogout .options{
+    margin-top: 15px;
+    width: 100%;
+    color: black;
+
+}
+
+.modalLogout .options .btnLogout{
+    height: 40px;
+    width: 100%;
+    background: white;
     cursor: pointer;
-    border-bottom: 1px solid transparent;
+    border: none;
+    text-align: start;
+    padding: 10px;
+    font-size: 17px;
 }
 
-.imageProfile .btnProfile .btnLogout:hover{
-    border-bottom: 1px solid white;
+.modalLogout .options .btnLogout:hover{
+    background: rgba(198,198,198,0.35)
 }

@@ -13,7 +13,6 @@ export function component(content)
                         </a>
                     </div>
                 
-               
                     ${content}    
                 </div>
             </div>
@@ -21,14 +20,20 @@ export function component(content)
 `;
 }
 
-export function logoutVisible(){
-    const el = document.querySelector('.btnLogout');
-    el.classList.add('visible');
-    el.classList.remove('invisible');
-}
+export function modalView(){
+    const modalLogout = document.querySelector('.modalLogout');
+    const avatar = document.querySelector('.avatar');
 
-export function logoutInvisible(){
-    const el = document.querySelector('.btnLogout');
-    el.classList.add('invisible');
-    el.classList.remove('visible');
+    if(modalLogout.classList.contains('invisible')){
+        modalLogout.classList.add('visible');
+        modalLogout.classList.remove('invisible');
+        avatar.style.borderColor = 'white'
+    }else{
+        modalLogout.classList.add('invisible');
+        modalLogout.classList.remove('visible');
+        avatar.style.borderColor = ''
+    }
+
+
+
 }

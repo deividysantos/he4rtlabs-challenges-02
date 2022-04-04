@@ -4,14 +4,13 @@ import * as login from './pages/login/login.js'
 import * as header from './pages/components/header/header.js';
 
 export function renderDashboard(token){
-    dashboard.init(token);
+    dashboard.init(token).then(()=>{
+        const btnLogout = document.querySelector('.btnLogout');
+        btnLogout.addEventListener('click', renderLogin );
 
-    const btnLogout = document.querySelector('.btnLogout');
-    btnLogout.addEventListener('click', renderLogin );
-
-    const imgProfile = document.querySelector('.imageProfile');
-    imgProfile.addEventListener('mouseover', header.logoutVisible);
-    imgProfile.addEventListener('mouseout', header.logoutInvisible);
+        const imgProfile = document.querySelector('.imageProfile');
+        imgProfile.addEventListener('click', header.modalView);
+    });
 }
 
 export function renderRegister(){

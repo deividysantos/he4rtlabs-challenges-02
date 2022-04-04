@@ -14,11 +14,21 @@ export async function init(token)
                 <div class="imageProfile">
                     <div class="btnProfile">
                         <img class="avatar" src="https://pbs.twimg.com/profile_images/1474809284168933376/bqhOArHH_400x400.jpg"  alt="imagem de perfil"/>
-                        ${response.name}
-                            <button class="btnLogout invisible">
-                                Logout
-                            </button>
                     </div>
+                    <div class="modalLogout invisible">
+                        <div class="header">
+                            <img class="avatar" src="https://pbs.twimg.com/profile_images/1474809284168933376/bqhOArHH_400x400.jpg"  alt="imagem de perfil"/>
+                            <div class="infos">
+                                <p>${response.name}</p>
+                                <p class="email">${response.email}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="options">
+                            <button class="btnLogout">Sair</button>
+                        </div>
+                    </div>
+                    
                 </div>
             `;
         })
@@ -29,6 +39,7 @@ export async function init(token)
 
 async function getData(token) {
     try {
+        console.log(token)
         let res = await axios({
             url: 'http://127.0.0.1:8000/api/user',
             method: 'get',

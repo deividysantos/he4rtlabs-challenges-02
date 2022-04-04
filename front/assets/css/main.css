@@ -12,10 +12,6 @@
 
 :root{
     --color1: #8870f1;
-    --green1: #2ECC71;
-    --green2: #58D68D;
-    --yellow1: #F39C12;
-    --yellow2: #F5B041;
 }
 
 .container{
@@ -25,6 +21,9 @@
 
 .visible{
     display: block;
+    position: fixed;
+    top: 70px;
+    transform: translatex(-250px);
 }
 
 .invisible{
