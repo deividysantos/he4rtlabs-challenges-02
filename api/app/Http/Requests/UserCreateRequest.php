@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UserCreateRequest extends FormRequest
 {
@@ -28,5 +30,17 @@ class UserCreateRequest extends FormRequest
             'email' => ['required', 'email', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'max:255']
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors();
+
+        $response = response()->json([
+            'message' => 'Invalid data send',
+            'details' => $errors->messages(),
+        ], 422);
+
+        throw new HttpResponseException($response);
     }
 }
