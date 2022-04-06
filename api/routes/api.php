@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,16 @@ Route::post('/auth/login', [AuthController::class, 'login'])
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])
         ->name('logout');
+
+    Route::prefix('/user')->group(function (){
+
+            Route::get('/project/{id}', [ProjectController::class, 'project'])
+                ->name('project.features');
+
+            Route::get('/projects', [ProjectController::class, 'all'])
+                ->name('project.get');
+
+            Route::post('/projects', [ProjectController::class, 'create'])
+                ->name('project.create');
+    });
 });
