@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
-use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests\Project\ProjectCreateRequest;
 use Illuminate\Http\JsonResponse;
@@ -38,9 +37,24 @@ class ProjectController extends Controller
     {
         $project = $this->repository->getById($id);
 
-        $this->authorize('delete', $project);
+        $this->authorize('belongTo', $project);
 
         $project->delete();
+    }
+
+    public function edit(int $id, ProjectCreateRequest $request)
+    {
+        $project = $this->repository->getById($id);
+
+        $this->authorize('belongTo', $project);
+
+        $project->name = $request['name'];
+        $project->client = $request['client'];
+        $project->price = $request['price'];
+
+        $project->save();
+
+        return response('', 200);
     }
 }
 

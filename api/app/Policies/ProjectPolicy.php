@@ -11,7 +11,7 @@ class ProjectPolicy
 {
     use HandlesAuthorization;
 
-    public function delete(User $user, Project $project)
+    public function belongTo(User $user, Project $project)
     {
         return $user->id == $project->user_id
             ? Response::allow()

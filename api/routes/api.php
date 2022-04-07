@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -34,21 +35,30 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    Route::prefix('/user')->group(function (){
+    Route::prefix('/user/projects')->group(function (){
 
-            Route::get('/projects/{id}', [ProjectController::class, 'getProject'])
-                ->name('project.get');
+        Route::get('/{id}', [ProjectController::class, 'getProject'])
+            ->name('project.get');
 
-            Route::get('/projects/{id}/features', [ProjectController::class, 'projectWithFeatures'])
-                ->name('project.features');
+        Route::get('/{id}/features', [ProjectController::class, 'projectWithFeatures'])
+            ->name('project.features');
 
-            Route::get('/projects', [ProjectController::class, 'all'])
-                ->name('project.all');
+        Route::get('/', [ProjectController::class, 'all'])
+            ->name('project.all');
 
-            Route::post('/projects', [ProjectController::class, 'create'])
-                ->name('project.create');
+        Route::post('/', [ProjectController::class, 'create'])
+            ->name('project.create');
 
-            Route::delete('/projects/{id}', [ProjectController::class, 'delete'])
-                ->name('project.delete');
+        Route::delete('/{id}', [ProjectController::class, 'delete'])
+            ->name('project.delete');
+
+        Route::put('/{id}', [ProjectController::class, 'edit'])
+            ->name('project.edit');
+
+        Route::post('/{id}/features', [FeatureController::class, 'create'])
+            ->name('feature.create');
+
+        Route::delete('/{id}/features/{id}', [FeatureController::class, 'delete'])
+            ->name('feature.delete');
     });
 });
