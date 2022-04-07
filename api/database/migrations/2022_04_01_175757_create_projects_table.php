@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('client');
             $table->decimal('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,5 +32,9 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('projects');
+
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

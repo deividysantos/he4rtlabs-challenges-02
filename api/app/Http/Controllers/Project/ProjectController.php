@@ -14,9 +14,14 @@ class ProjectController extends Controller
         private ProjectRepository $repository
     ) {}
 
-    public function project(int $id): JsonResponse
+    public function getProject(int $id): JsonResponse
     {
-        return response()->json($this->repository->project($id));
+        return response()->json($this->repository->getById($id));
+    }
+
+    public function projectWithFeatures(int $id): JsonResponse
+    {
+        return response()->json($this->repository->getByIdWithFeatures($id));
     }
 
     public function all(): JsonResponse
@@ -27,6 +32,15 @@ class ProjectController extends Controller
     public function create(ProjectCreateRequest $request)
     {
         $this->repository->create( $request->validated() );
+    }
+
+    public function delete(int $id)
+    {
+        $project = $this->repository->getById($id);
+
+        $this->authorize('delete', $project);
+
+        $project->delete();
     }
 }
 

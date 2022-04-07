@@ -11,7 +11,12 @@ class ProjectRepository
       private Project $project
     ) {}
 
-    public function project(int $id)
+    public function getById(int $id)
+    {
+        return $this->project->query()->find($id);
+    }
+
+    public function getByIdWithFeatures(int $id)
     {
         return $this->project->with('features')->find($id);
     }

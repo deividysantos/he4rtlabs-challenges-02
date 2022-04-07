@@ -36,13 +36,19 @@ Route::middleware('auth:sanctum')->group(function(){
 
     Route::prefix('/user')->group(function (){
 
-            Route::get('/project/{id}', [ProjectController::class, 'project'])
+            Route::get('/projects/{id}', [ProjectController::class, 'getProject'])
+                ->name('project.get');
+
+            Route::get('/projects/{id}/features', [ProjectController::class, 'projectWithFeatures'])
                 ->name('project.features');
 
             Route::get('/projects', [ProjectController::class, 'all'])
-                ->name('project.get');
+                ->name('project.all');
 
             Route::post('/projects', [ProjectController::class, 'create'])
                 ->name('project.create');
+
+            Route::delete('/projects/{id}', [ProjectController::class, 'delete'])
+                ->name('project.delete');
     });
 });
