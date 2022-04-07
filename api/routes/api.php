@@ -58,7 +58,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('/{id}/features', [FeatureController::class, 'create'])
             ->name('feature.create');
 
-        Route::delete('/{id}/features/{id}', [FeatureController::class, 'delete'])
+        Route::delete('/features/{id}', [FeatureController::class, 'delete'])
             ->name('feature.delete');
     });
 });
